@@ -29,7 +29,7 @@ Webpack is the best for react.
 Babel is the closest to the W3C standard.
 Browser Sync is the best, because of multi-device reloading.
 
-Testing
+Testing:
 Mocha.
 
 
