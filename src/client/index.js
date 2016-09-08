@@ -10,5 +10,5 @@ import routes from '../shared/routes'
 
 render(
   <Router routes={routes} history={browserHistory} />,
-  getElementById('app')
+  document.getElementById('app')
 )

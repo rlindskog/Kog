@@ -14,14 +14,15 @@ module.exports = {
     filename: 'bundle.client.js',
     publicPath: '/'
   },
+  devtool: development ? 'inline-source-map' : null,
   plugins: development ? [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     warnings: false
-    //   }
-    // }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
   ] : [],

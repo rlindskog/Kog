@@ -30,26 +30,20 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // development middleware
-app.use(webpackDevMiddleware(compiler, {
-    noInfo: true,
-    publicPath: webpackClientConfig.output.publicPath,
-    // proxy: {
-    //   '/': {
-    //     secure: false,
-    //     target:'http://localhost:7000'
-    //   }
-    // }
-  }
-))
-
-
 // use this https://github.com/gaearon/react-hot-loader when it comes out
 // "Redux is a Flux implementation that supports hot reloading of everything out of the box."
 // ??!!
+app.use(webpackDevMiddleware(compiler, {
+    noInfo: true,
+    publicPath: webpackClientConfig.output.publicPath,
+  }
+))
 app.use(webpackHotMiddleware(compiler))
 
+
+
+
 app.get('/', (req, res) => {
-  // res.sendFile(path.resolve('src', 'client', 'index.html'))
   match({ routes: routes, location: req.url }, (err, redirect, props) => {
     if (err) {
       res.status(500).send(err.message)
@@ -68,8 +62,7 @@ function renderPage(appHtml) {
   return `
     <!doctype html public "storage">
     <html>
-    <meta charset=utf-8/>
-    <link rel="stylesheet" href="/index.css" />
+    <meta charset="utf-8"/>
     <title>My First React Router App</title>
     <div id=app>${appHtml}</div>
     <script src="/bundle.client.js"></script>
