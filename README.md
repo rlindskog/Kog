@@ -2,16 +2,16 @@ Kog
 
 An extremely opinionated javascript web framework.
 
-The Zen of Kog.
-There should be one-- and preferably only one --obvious way to do it
-Boilerplate should be abstracted.
-Builds should be abstracted.
-Things not required to create your app should be abstracted.
-Development tools should be implicit.
-Modules, components and container creation should be automated.
-Builds are too slow for development.
-The W3C standard is correct. Lets only use that.
-More time should be spent on your app than setup.
+The Zen of Kog.\n
+There should be one-- and preferably only one --obvious way to do it\n
+Boilerplate should be abstracted.\n
+Builds should be abstracted.\n
+Things not required to create your app should be abstracted.\n
+Development tools should be implicit.\n
+Modules, components and container creation should be automated.\n
+Builds are too slow for development.\n
+The W3C standard is correct. Lets only use that.\n
+More time should be spent on your app than setup.\n
 
 Server:
 Express is the best backend framework.
