@@ -1,24 +1,28 @@
 const webpack = require('webpack')
 const path = require('path')
-const debug = process.env.NODE_ENV !== 'production'
+const development = process.env.NODE_ENV !== 'production'
 
 // settings
 
 module.exports = {
-  entry: path.resolve('src', 'client', 'index.js'),
+  entry: [
+    'webpack-hot-middleware/client',
+    path.resolve('src', 'client', 'index.js'),
+  ],
   output: {
     path: path.resolve('build', 'client'),
     filename: 'bundle.client.js',
     publicPath: '/'
   },
-  plugins: debug ? [
+  plugins: development ? [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
       }
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ] : [],
 
   module: {
@@ -28,7 +32,7 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015'],
+          presets: ['react', 'es2015', 'react-hmre'],
           plugins: [
             'react-html-attrs',
             'add-module-exports',

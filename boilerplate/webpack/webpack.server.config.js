@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
 const fs = require('fs')
-const debug = process.env.NODE_ENV !== 'production'
+const development = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   entry: path.resolve('src', 'server', 'server.js'),
@@ -23,7 +23,7 @@ module.exports = {
     __dirname: true
   },
 
-  plugins: debug ? [
+  plugins: development ? [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
