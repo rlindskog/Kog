@@ -16,6 +16,7 @@ app.listen(7000, (err) => {
   if (err) {
     console.log(err)
   }
+  // TODO: put this in some middleware or something
   if (!config.isProduction) {
     browserSync({
       proxy: 'http://localhost:7000',
