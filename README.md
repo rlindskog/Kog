@@ -2,7 +2,7 @@
 
 An extremely opinionated javascript web framework.
 
-**The Zen of Kog.**
+## **The Zen of Kog.**
 * *There should be one-- and preferably only one --obvious way to do it.*
 * *Boilerplate should be abstracted.*
 * *Builds should be abstracted.*
@@ -13,6 +13,7 @@ An extremely opinionated javascript web framework.
 * *The W3C standard is correct. Lets only use that.*
 * *More time should be spent on your app than setup.*
 
+## *Opinions*
 Server:
 Express is the best backend framework.
 Mongoose is the best ORM.
