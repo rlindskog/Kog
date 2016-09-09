@@ -38,6 +38,7 @@
     "browser-sync": "^2.14.3",
     "nodemon": "^1.10.2",
     "webpack": "^1.13.2",
-    "webpack-dev-middleware": "^1.6.1"
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.12.2"
   }
 }
