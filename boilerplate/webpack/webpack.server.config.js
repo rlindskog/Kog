@@ -23,7 +23,7 @@ module.exports = {
     __dirname: true
   },
 
-  plugins: development ? [
+  plugins: [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
@@ -31,7 +31,7 @@ module.exports = {
         warnings: false
       }
     }),
-  ] : [],
+  ],
 
   module: {
     loaders: [

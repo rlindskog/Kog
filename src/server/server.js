@@ -75,7 +75,7 @@ app.listen(config.port, (err) => {
     console.log(err)
   }
   // TODO: abstract this shit or subclass 'listen'
-  if (!config.isProduction) {
+  if (config.development) {
     browserSync({
       proxy: FULL_ADDRESS,
       files: ['src/client/**/*.{js,scss,html}'],

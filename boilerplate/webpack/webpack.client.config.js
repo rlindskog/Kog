@@ -5,10 +5,10 @@ const development = process.env.NODE_ENV !== 'production'
 // settings
 
 module.exports = {
-  entry: [
+  entry: development ? [
     'webpack-hot-middleware/client',
     path.resolve('src', 'client', 'index.js'),
-  ],
+  ] : path.resolve('src', 'client', 'index.js'),
   output: {
     path: path.resolve('build', 'client'),
     filename: 'bundle.client.js',
@@ -25,7 +25,15 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-  ] : [],
+  ] : [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
+  ],
 
   module: {
     loaders: [
