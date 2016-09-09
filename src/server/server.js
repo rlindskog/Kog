@@ -34,6 +34,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 // development middleware
 // use this https://github.com/gaearon/react-hot-loader when v3 it's ready
+// https://github.com/gaearon/redux-devtools or this when you add redux
+// ... lol
 app.use(webpackDevMiddleware(compiler, {
     noInfo: true,
     publicPath: webpackClientConfig.output.publicPath,
