@@ -18,9 +18,12 @@ import webpackClientConfig from '../../boilerplate/webpack/webpack.client.config
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
 
+// constants
 const app = new express
 const server = http.createServer(app)
 const compiler = webpack(webpackClientConfig)
+// custom constants
+const FULL_ADDRESS = `http://${config.host}:${config.port}`
 
 // static middleware
 app.use(express.static(path.resolve('build', 'client')))
@@ -30,9 +33,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // development middleware
-// use this https://github.com/gaearon/react-hot-loader when it comes out
-// "Redux is a Flux implementation that supports hot reloading of everything out of the box."
-// ??!!
+// use this https://github.com/gaearon/react-hot-loader when v3 it's ready
 app.use(webpackDevMiddleware(compiler, {
     noInfo: true,
     publicPath: webpackClientConfig.output.publicPath,
@@ -43,7 +44,7 @@ app.use(webpackHotMiddleware(compiler))
 
 
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   match({ routes: routes, location: req.url }, (err, redirect, props) => {
     if (err) {
       res.status(500).send(err.message)
@@ -69,17 +70,17 @@ function renderPage(appHtml) {
   `
 }
 
-app.listen(7000, (err) => {
+app.listen(config.port, (err) => {
   if (err) {
     console.log(err)
   }
   // TODO: abstract this shit or subclass 'listen'
   if (!config.isProduction) {
     browserSync({
-      proxy: 'http://localhost:7000',
+      proxy: FULL_ADDRESS,
       files: ['src/client/**/*.{js,scss,html}'],
       open: false,
     })
   }
-  console.log('🌍 listening at http://%s:%s', config.host, config.port)
+  console.log('🌍 listening at %s', FULL_ADDRESS)
 })
