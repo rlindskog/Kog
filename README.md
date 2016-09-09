@@ -38,18 +38,26 @@ Mocha.
 
 
 
-## **Commands:**
+## **Getting Started:**
+
+**Install**
+```
+git clone https://github.com/rlindskog/Kog.git *[directory-name]*
+```
+```
+cd *[directory-name]*
+npm install
+```
+**Run Development Server**
+```
+npm run start
+```
 **Run Production Server:**
 ```
 NODE_ENV=production npm run start
 ```
 Use this and not start:prod because it actually sets the NODE_ENV=production
 and some of the files rely on process.env.NODE_ENV (debug)
-
-**Run Development Server**
-```
-npm run start
-```
 
 
 **Why I chose to make this:**
