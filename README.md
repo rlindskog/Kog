@@ -56,8 +56,8 @@ npm run start
 ```
 NODE_ENV=production npm run start
 ```
-Use this and not start:prod because it actually sets the NODE_ENV=production
-and some of the files rely on process.env.NODE_ENV (debug)
+Use this and not ```npm run start:prod``` because it actually sets the NODE_ENV=production
+and some of the files rely on the NODE_ENV being production.
 
 
 **Why I chose to make this:**
