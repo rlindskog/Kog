@@ -42,10 +42,10 @@ Mocha.
 
 **Install**
 ```
-git clone https://github.com/rlindskog/Kog.git *[directory-name]*
+git clone https://github.com/rlindskog/Kog.git [new directory-name]
 ```
 ```
-cd *[directory-name]*
+cd [new directory-name]
 npm install
 ```
 **Run Development Server**
